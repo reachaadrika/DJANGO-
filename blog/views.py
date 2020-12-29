@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
+from.models import Post
 
 posts=[
      {
@@ -29,7 +30,7 @@ def home(request): #handle traffic from homepage of blog , take a request arg
                    # return what we want user to see when we go to this route
     
     context={
-         'posts':posts
+         'posts':Post.objects.all()
     }
     return render(request,'blog/home.html',context)
 
